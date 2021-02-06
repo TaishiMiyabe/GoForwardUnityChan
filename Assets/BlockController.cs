@@ -33,7 +33,7 @@ public class BlockController : MonoBehaviour
 
         if (collision.gameObject.tag != "UnityChan")
         {
-            GetComponent<AudioSource>().Play(); // GetComponent<AudioSource>().volume = 1; じゃダメだったのはなぜ？
+            GetComponent<AudioSource>().Play(); 
         }
     }
 }
