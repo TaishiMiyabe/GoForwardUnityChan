@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
     private float speed = 5f;
 
     //ゲームオーバー判定
-    private bool isGameOver = false;
+    public bool isGameOver = false;
 
 
 

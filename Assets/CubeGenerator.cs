@@ -32,19 +32,22 @@ public class CubeGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.delta += Time.deltaTime;
-
-        if(this.delta > this.span)
+        if (!GameObject.Find("Canvas").GetComponent<UIController>().isGameOver)//ゲームオーバーでないなら、キューブを生成する。
         {
-            this.delta = 0;
+            this.delta += Time.deltaTime;
 
-            //生成するブロック数をランダムで
-            int n = Random.Range(1, maxBlockNum + 1);
-
-            for(int i = 0; i<n; i++)
+            if (this.delta > this.span)
             {
-                GameObject go = Instantiate(cubePrefab)as GameObject;//as の役割。なくても動く
-                go.transform.position = new Vector2(this.genPosX, this.offsetY + i * this.spaceY);
+                this.delta = 0;
+
+                //生成するブロック数をランダムで
+                int n = Random.Range(1, maxBlockNum + 1);
+
+                for (int i = 0; i < n; i++)
+                {
+                    GameObject go = Instantiate(cubePrefab) as GameObject;//as の役割。なくても動く
+                    go.transform.position = new Vector2(this.genPosX, this.offsetY + i * this.spaceY);
+                }
             }
         }
     }
